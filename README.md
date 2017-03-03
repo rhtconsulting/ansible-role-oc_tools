@@ -4,9 +4,9 @@ Ansible role for installing the `oc` tools and logging into or out of a given Op
 
 ## Role Variables
 
-| parameter      | required | default | choices       | comments 
-| -------------- |:--------:|:-------:| ------------- |:-------- 
-| `state`        | yes      | login   | login, logout |          
+| parameter            | required | default | choices       | comments 
+| -------------------- |:--------:|:-------:| ------------- |:-------- 
+| `state`              | yes      | login   | login, logout | Whether to log into or out of OpenShift
 | `openshift_host`     | yes      |         |               | OpenShift host to log into         
 | `openshift_username` | yes      |         |               | OpenShift usernmae to log in as         
 | `openshift_password` | yes      |         |               | OpenShift username password         
