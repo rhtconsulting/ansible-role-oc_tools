@@ -3,11 +3,11 @@
 # REQUIRED VARIABLES
 #   client_binary_tar  - Archive containing the `oc` tools
 #   client_binary_dest - Destination to put the `oc` tools
-#   ocp_host           - OCP host to log into
-#   ocp_username       - OCP usernmae to log in as
-#   ocp_password       - OCP username password
-#   state              - 'login' if should login to OCP.
-#                        'logout' if should logout of OCP.
+#   openshift_host           - OpenShift host to log into
+#   openshift_username       - OpenShift usernmae to log in as
+#   openshift_password       - OpenShift username password
+#   state              - 'login' if should login to OpenShift.
+#                        'logout' if should logout of OpenShift.
 #
 # SET FACTS
 #   oc_tools - location of the `oc` tools

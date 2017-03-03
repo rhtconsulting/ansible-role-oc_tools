@@ -1,19 +1,19 @@
 # oc_tools
 
-Ansible role for installing the `oc` tools and logging into or out of a given OCP instance.
+Ansible role for installing the `oc` tools and logging into or out of a given OpenShift instance.
 
 ## Role Variables
 
 | parameter      | required | default | choices       | comments 
 | -------------- |:--------:|:-------:| ------------- |:-------- 
 | `state`        | yes      | login   | login, logout |          
-| `ocp_host`     | yes      |         |               | OCP host to log into         
-| `ocp_username` | yes      |         |               | OCP usernmae to log in as         
-| `ocp_password` | yes      |         |               | OCP username password         
+| `openshift_host`     | yes      |         |               | OpenShift host to log into         
+| `openshift_username` | yes      |         |               | OpenShift usernmae to log in as         
+| `openshift_password` | yes      |         |               | OpenShift username password         
                                    
 ## Example Playbook
 
-### Log into OCP
+### Log into OpenShift
 
 ```
 - name: Testing
@@ -21,12 +21,12 @@ Ansible role for installing the `oc` tools and logging into or out of a given OC
   roles:
     - role: oc_tools
       state: login
-      ocp_host: openshift.example.com:8443
-      ocp_username: test
-      ocp_password: Test123!@#
+      openshift_host: openshift.example.com:8443
+      openshift_username: test
+      openshift_password: Test123!@#
 ```
 
-### Log out of OCP
+### Log out of OpenShift
 
 ```
 - name: Testing
