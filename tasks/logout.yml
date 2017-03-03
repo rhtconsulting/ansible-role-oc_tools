@@ -13,5 +13,4 @@
 - name: Log out of OpenShift
   command: >
     {{ oc_tools }} logout
-  no_log: True
   when: oc_whoami.rc == 0
