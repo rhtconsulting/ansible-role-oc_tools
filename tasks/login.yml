@@ -1,0 +1,34 @@
+# Logs a given user into a given OCP using the `oc` tools.
+#
+# REQUIRED VARIABLES
+#   ocp_host     - OCP host to log into
+#   ocp_username - OCP usernmae to log in as
+#   ocp_password - OCP username password
+
+- name: Verify 'ocp_host' defined
+  fail:
+    msg: "'ocp_host' must be defined"
+  when: ocp_host is undefined
+
+- name: Verify 'ocp_username' defined
+  fail:
+    msg: "'ocp_username' must be defined"
+  when: ocp_username is undefined
+
+- name: Verify 'ocp_password' defined
+  fail:
+    msg: "'ocp_password' must be defined"
+  when: ocp_password is undefined
+
+- name: Get current OCP user
+  command: >
+    {{ oc_tools }} whoami
+  register: oc_whoami
+  ignore_errors: True
+  changed_when: False
+
+- name: Log into OCP
+  command: >
+    {{ oc_tools }} login {{ ocp_host }} --username='{{ ocp_username }}' --password='{{ ocp_password }}'
+  no_log: True
+  when: oc_whoami.stdout != ocp_username

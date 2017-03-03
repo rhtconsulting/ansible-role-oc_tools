@@ -1,0 +1,3 @@
+client_binary_tar: oc-3.4.1.7-linux.tar.gz
+client_binary_dest: /usr/local/bin
+client_binary: "{{ client_binary_dest }}/oc"

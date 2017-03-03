@@ -1,0 +1,32 @@
+# Installs the OpenShift `oc` tools and sets a fact about their location.
+#
+# REQUIRED VARIABLES
+#   client_binary_tar  - Archive containing the `oc` tools
+#   client_binary_dest - Destination to put the `oc` tools
+#   ocp_host           - OCP host to log into
+#   ocp_username       - OCP usernmae to log in as
+#   ocp_password       - OCP username password
+#   state              - 'login' if should login to OCP.
+#                        'logout' if should logout of OCP.
+#
+# SET FACTS
+#   oc_tools - location of the `oc` tools
+
+- name: Install 'oc' tools
+  unarchive:
+    src: "{{ client_binary_tar }}"
+    dest: "{{ client_binary_dest }}"
+
+- name: Set 'oc' tools location fact
+  set_fact:
+    oc_tools: "{{ client_binary_dest }}/oc"
+
+- name: Login
+  include: login.yml
+  static: false
+  when: state == 'login'
+
+- name: Logout
+  include: logout.yml
+  static: false
+  when: state == 'logout'

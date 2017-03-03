@@ -1,0 +1,17 @@
+# Logs a given user out of a given OCP using the `oc` tools.
+#
+# REQUIRED VARIABLES
+#   oc_tools - location of the `oc` tools
+
+- name: Check if currently logged into OCP
+  command: >
+    {{ oc_tools }} whoami
+  register: oc_whoami
+  ignore_errors: True
+  changed_when: False
+
+- name: Log out of OCP
+  command: >
+    {{ oc_tools }} logout
+  no_log: True
+  when: oc_whoami.rc == 0

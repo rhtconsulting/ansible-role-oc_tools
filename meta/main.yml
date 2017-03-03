@@ -1,0 +1,25 @@
+galaxy_info:
+  author: Ian Tewksbury
+  description: Ansible role for installing the `oc` tools and logging into or out of a given OCP instance.
+  company: Red Hat
+  license: license (Apache)
+  min_ansible_version: 2.2.0
+  platforms:
+  - name: GenericLinux
+    versions:
+    - any
+  - name: EL
+    versions:
+    - 6
+    - 7
+  galaxy_tags:
+    - openshift
+    - ocp
+    - tools
+    - redhat
+  categories:
+    - openshift
+    - ocp
+    - tools
+    - redhat
+dependencies: []
